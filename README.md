@@ -10,7 +10,7 @@ alojados en ese subdominio.
 |---|---|
 | `index.html` | Catálogo: herramientas con demo, repos sin demo, enlace a Substack. Autocontenido, sin dependencias externas. |
 | `robots.txt` | Reglas de rastreo para **todo** `v0raonline.github.io`, subproyectos incluidos. |
-| `sitemap.xml` | Lista de URLs para los buscadores. Referenciado desde `robots.txt`. |
+| `sitemap.xml` | Lista de URLs para los buscadores. Referenciado desde `robots.txt`, junto con los sitemaps propios de arkinesis, happypuking-lab y parallax. |
 
 ## Política de `robots.txt`
 

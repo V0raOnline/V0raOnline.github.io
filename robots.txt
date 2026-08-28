@@ -92,4 +92,8 @@ Disallow: /
 User-agent: *
 Allow: /
 
+# Sitemaps: el de la raiz mas los que traen los propios proyectos.
 Sitemap: https://v0raonline.github.io/sitemap.xml
+Sitemap: https://v0raonline.github.io/arkinesis/sitemap.xml
+Sitemap: https://v0raonline.github.io/happypuking-lab/sitemap.xml
+Sitemap: https://v0raonline.github.io/parallax/sitemap.xml
