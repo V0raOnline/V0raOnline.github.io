@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V0ra — Catálogo</title>
+<meta name="description" content="Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros. Herramientas que se abren en el navegador y funcionan sin cuenta, sin instalación y sin nube. Y escritura sobre IA sin culto ni miedo.">
+<link rel="canonical" href="https://v0raonline.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="V0ra — Catálogo">
+<meta property="og:description" content="Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros. Con suerte, algunos son las dos cosas.">
+<meta property="og:url" content="https://v0raonline.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230b0d10'/%3E%3Ctext%20x='16'%20y='23'%20font-family='monospace'%20font-size='19'%20font-weight='700'%20fill='%23ff2d95'%20text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0b0d10;
+    --panel:#121519;
+    --panel-hi:#181c22;
+    --line:#242a32;
+    --fg:#e8eaed;
+    --muted:#8f959e;
+
+    /* magenta = identidad. manda. */
+    --accent:#ff2d95;
+    --accent-dim:#a3175f;
+    /* cian = navegación. solo enlaces. */
+    --link:#22d3ee;
+
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:var(--link);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:3px}
+
+  /* ---------- header ---------- */
+  header{padding:72px 0 12px}
+  .brand{
+    font-family:var(--mono);
+    font-size:clamp(2.2rem,7vw,3.4rem);
+    font-weight:700;
+    letter-spacing:-.03em;
+    margin:0;
+    line-height:1;
+    color:var(--accent);
+  }
+  .brand span{color:var(--fg)}
+  .epithet{
+    font-family:var(--mono);
+    font-size:.86rem;
+    color:var(--accent);
+    letter-spacing:.02em;
+    margin:12px 0 0;
+  }
+  .voice{
+    margin:22px 0 0;
+    max-width:54ch;
+    font-size:1.12rem;
+    color:var(--fg);
+  }
+  .promise{
+    margin:14px 0 0;
+    max-width:54ch;
+    color:var(--muted);
+  }
+  .promise strong{color:var(--fg);font-weight:600}
+  .top-links{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin:28px 0 0;padding:0;list-style:none;
+  }
+  .top-links a{
+    display:inline-block;
+    font-family:var(--mono);font-size:.82rem;
+    padding:7px 13px;border:1px solid var(--line);border-radius:999px;
+    color:var(--fg);background:var(--panel);
+    transition:border-color .15s,color .15s;
+  }
+  .top-links a:hover{border-color:var(--link);color:var(--link);text-decoration:none}
+  .top-links a.substack:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- secciones ---------- */
+  section{padding:56px 0 0}
+  h2{
+    font-family:var(--mono);
+    font-size:.78rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.18em;
+    color:var(--muted);
+    margin:0 0 22px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  h2 b{color:var(--accent);font-weight:600}
+
+  /* ---------- tarjetas ---------- */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+  .card{
+    display:flex;flex-direction:column;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:22px 22px 18px;
+    transition:border-color .15s,background .15s,transform .15s;
+  }
+  .card:hover{border-color:var(--accent-dim);background:var(--panel-hi);transform:translateY(-2px)}
+  .card h3{margin:0;font-size:1.12rem;letter-spacing:-.01em}
+  .card h3 a{color:var(--fg)}
+  .card h3 a:hover{color:var(--accent);text-decoration:none}
+  .card p{margin:10px 0 0;color:var(--muted);font-size:.94rem;flex:1}
+  .tags{
+    display:flex;flex-wrap:wrap;gap:6px;
+    margin:16px 0 0;padding:0;list-style:none;
+  }
+  .tags li{
+    font-family:var(--mono);font-size:.7rem;
+    color:var(--muted);
+    border:1px solid var(--line);border-radius:4px;
+    padding:2px 7px;
+  }
+  .actions{
+    display:flex;gap:18px;
+    margin:18px 0 0;padding-top:14px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:.8rem;
+  }
+  .actions .secondary{color:var(--muted)}
+  .actions .secondary:hover{color:var(--fg)}
+
+  /* ---------- lista simple ---------- */
+  .plain{list-style:none;margin:0;padding:0}
+  .plain li{border-bottom:1px solid var(--line)}
+  .plain li:first-child{border-top:1px solid var(--line)}
+  .plain a{
+    display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;
+    padding:14px 4px;color:var(--fg);
+  }
+  .plain a:hover{color:var(--link);text-decoration:none}
+  .plain code{font-family:var(--mono);font-size:.9rem}
+  .plain em{font-style:normal;color:var(--muted);font-size:.9rem}
+
+  /* ---------- escritura (territorio magenta) ---------- */
+  .writing{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:10px;
+    padding:26px;
+  }
+  .writing p{margin:0 0 8px;color:var(--muted)}
+  .writing p:last-child{margin-bottom:0}
+  .writing .lead{color:var(--fg);font-size:1.05rem}
+  .writing .go{margin-top:16px}
+  .writing a{color:var(--accent)}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:72px;padding:26px 0 56px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:.78rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
+  }
+  @media (max-width:520px){
+    header{padding-top:48px}
+    .wrap{padding:0 18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1 class="brand">V<span>0</span>ra</h1>
+  <p class="epithet">pequeña criatura del análisis bayesiano</p>
+  <p class="voice">
+    Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros.
+    Con suerte, algunos son las dos cosas.
+  </p>
+  <p class="promise">
+    Todo lo de aquí <strong>se abre en el navegador y funciona sin cuenta, sin instalación y sin nube</strong>.
+    Los datos se quedan en tu máquina.
+  </p>
+  <ul class="top-links">
+    <li><a class="substack" href="https://v0raonline.substack.com">Substack ↗</a></li>
+    <li><a href="https://github.com/V0raOnline">GitHub ↗</a></li>
+  </ul>
+</header>
+
+<section id="herramientas">
+  <h2>Herramientas <b>· se abren y ya</b></h2>
+  <div class="grid">
+
+    <article class="card">
+      <h3><a href="https://v0raonline.github.io/arkinesis/">Arkinesis</a></h3>
+      <p>Simulaciones de física interactivas para aprender observando: cambias una variable, miras qué pasa y la comprensión la construyes experimentando.</p>
+      <ul class="tags"><li>física</li><li>educación</li><li>navegador</li></ul>
+      <div class="actions">
+        <a href="https://v0raonline.github.io/arkinesis/">Abrir →</a>
+        <a class="secondary" href="https://github.com/V0raOnline/arkinesis">código</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://v0raonline.github.io/happypuking-lab/">HappyPuking Lab</a></h3>
+      <p>Recursos educativos interactivos, abiertos y gratuitos para mentes que aprenden diferente. Sin cuentas, sin instalación, funcionan offline.</p>
+      <ul class="tags"><li>educación</li><li>neurodivergencia</li><li>offline</li></ul>
+      <div class="actions">
+        <a href="https://v0raonline.github.io/happypuking-lab/">Abrir →</a>
+        <a class="secondary" href="https://github.com/V0raOnline/happypuking-lab">código</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://v0raonline.github.io/parallax/">Parallax</a></h3>
+      <p>Ventana de decisión entre estado interno y acción. Registra señales y episodios sin interpretar causas. Un solo archivo HTML: sin servidor, sin cuenta, sin nube.</p>
+      <ul class="tags"><li>instrumentación</li><li>autorregistro</li><li>local-first</li></ul>
+      <div class="actions">
+        <a href="https://v0raonline.github.io/parallax/">Abrir →</a>
+        <a class="secondary" href="https://github.com/V0raOnline/parallax">código</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://v0raonline.github.io/DriftCompass/">DriftCompass</a></h3>
+      <p>Simulador de cómo la interacción con una IA afecta a tu agencia epistémica: la capacidad de evaluar pruebas, revisar creencias y razonar por tu cuenta.</p>
+      <ul class="tags"><li>IA</li><li>agencia epistémica</li><li>simulador</li></ul>
+      <div class="actions">
+        <a href="https://v0raonline.github.io/DriftCompass/">Abrir →</a>
+        <a class="secondary" href="https://github.com/V0raOnline/DriftCompass">código</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3><a href="https://v0raonline.github.io/Astro-Nav-HUD/">Astro-Nav HUD</a></h3>
+      <p>Cuatro sistemas de navegación simbólica —Tonalpohualli, Tzolkin, carta natal occidental y Jyotish— calculados en vivo. Muestra el mapa; no te dice adónde ir.</p>
+      <ul class="tags"><li>astronomía</li><li>simbólico</li><li>datos editables</li></ul>
+      <div class="actions">
+        <a href="https://v0raonline.github.io/Astro-Nav-HUD/">Abrir →</a>
+        <a class="secondary" href="https://github.com/V0raOnline/Astro-Nav-HUD">código</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="codigo">
+  <h2>Código <b>· sin demo web</b></h2>
+  <ul class="plain">
+    <li><a href="https://github.com/V0raOnline/MemorIA2GO"><code>MemorIA2GO</code> <em>Preserva y reconstruye tus conversaciones exportadas — ChatGPT, Claude, Grok, Suno, Substack.</em></a></li>
+    <li><a href="https://github.com/V0raOnline/MemorIA"><code>MemorIA</code> <em>Toolkit en Python: exports de ChatGPT convertidos en vaults de Obsidian estructurados.</em></a></li>
+    <li><a href="https://github.com/V0raOnline/CLI4Humans"><code>CLI4Humans</code> <em>La interfaz humana de MemorIA, para quien no vive en la terminal.</em></a></li>
+    <li><a href="https://github.com/V0raOnline/FEA"><code>FEA</code> <em>Marco modular de revisión adaptativa para análisis y edición textual con modelos de IA.</em></a></li>
+  </ul>
+</section>
+
+<section id="escritura">
+  <h2>Escritura <b>· Substack</b></h2>
+  <div class="writing">
+    <p class="lead">Laboratorio fronterizo para mirar la IA sin culto ni miedo: fenomenología, interpretabilidad y glitch como método.</p>
+    <p>Si te interesa lo que late bajo el modelo, sintoniza.</p>
+    <p class="go"><a href="https://v0raonline.substack.com"><strong>v0raonline.substack.com ↗</strong></a></p>
+  </div>
+</section>
+
+<footer>
+  <span>CC BY-NC-SA 4.0 · los datos se quedan en tu máquina</span>
+  <span><a href="/robots.txt">robots.txt</a></span>
+</footer>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "V0ra — Catálogo",
+  "url": "https://v0raonline.github.io/",
+  "description": "Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros. Con suerte, algunos son las dos cosas.",
+  "author": {
+    "@type": "Person",
+    "name": "V0ra",
+    "alternateName": "pequeña criatura del análisis bayesiano",
+    "url": "https://github.com/V0raOnline",
+    "sameAs": ["https://v0raonline.substack.com", "https://github.com/V0raOnline"]
+  },
+  "hasPart": [
+    {"@type":"SoftwareApplication","name":"Arkinesis","url":"https://v0raonline.github.io/arkinesis/","applicationCategory":"EducationalApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},
+    {"@type":"SoftwareApplication","name":"HappyPuking Lab","url":"https://v0raonline.github.io/happypuking-lab/","applicationCategory":"EducationalApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},
+    {"@type":"SoftwareApplication","name":"Parallax","url":"https://v0raonline.github.io/parallax/","applicationCategory":"HealthApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},
+    {"@type":"SoftwareApplication","name":"DriftCompass","url":"https://v0raonline.github.io/DriftCompass/","applicationCategory":"EducationalApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},
+    {"@type":"SoftwareApplication","name":"Astro-Nav HUD","url":"https://v0raonline.github.io/Astro-Nav-HUD/","applicationCategory":"ReferenceApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
+  ]
+}
+</script>
+</body>
+</html>
