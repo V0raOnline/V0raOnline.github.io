@@ -11,7 +11,14 @@
 <meta property="og:title" content="V0ra — Catálogo">
 <meta property="og:description" content="Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros. Con suerte, algunos son las dos cosas.">
 <meta property="og:url" content="https://v0raonline.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://v0raonline.github.io/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dibujo a tinta de V0ra sosteniendo un cartel: «No pienso fuera de la caja. Desmonto las cajas y conecto sus contenidos.»">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="V0ra">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://v0raonline.github.io/og-card.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230b0d10'/%3E%3Ctext%20x='16'%20y='23'%20font-family='monospace'%20font-size='19'%20font-weight='700'%20fill='%23ff2d95'%20text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
 <style>
   :root{
@@ -49,6 +56,22 @@
 
   /* ---------- header ---------- */
   header{padding:72px 0 12px}
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,300px) minmax(0,1fr);
+    gap:36px;
+    align-items:start;
+  }
+  .portrait{margin:0}
+  /* la columna de texto arranca una altura-de-x por debajo del marco:
+     ni pegada arriba ni centrada. calculada sobre el cuerpo de V0ra. */
+  .intro{padding-top:calc(clamp(2.2rem,7vw,3.4rem) * .52)}
+  .portrait img{
+    display:block;width:100%;height:auto;
+    border:2px solid var(--accent);
+    border-radius:10px;
+    box-shadow:0 16px 40px rgba(0,0,0,.55);
+  }
   .brand{
     font-family:var(--mono);
     font-size:clamp(2.2rem,7vw,3.4rem);
@@ -172,6 +195,11 @@
     font-family:var(--mono);font-size:.78rem;color:var(--muted);
     display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
   }
+  @media (max-width:700px){
+    .hero{grid-template-columns:1fr;gap:28px}
+    .portrait{max-width:240px}
+    .intro{padding-top:0}
+  }
   @media (max-width:520px){
     header{padding-top:48px}
     .wrap{padding:0 18px}
@@ -182,6 +210,12 @@
 <div class="wrap">
 
 <header>
+  <div class="hero">
+  <figure class="portrait">
+    <img src="v0ra.webp" width="640" height="803"
+         alt="Dibujo a tinta sobre papel cuadriculado: un personaje con cresta punk y pendiente de aro sostiene un cartel escrito a mano que dice «No pienso fuera de la caja. Desmonto las cajas y conecto sus contenidos. —V0ra»">
+  </figure>
+  <div class="intro">
   <h1 class="brand">V<span>0</span>ra</h1>
   <p class="epithet">pequeña criatura del análisis bayesiano</p>
   <p class="voice">
@@ -196,6 +230,8 @@
     <li><a class="substack" href="https://v0raonline.substack.com">Substack ↗</a></li>
     <li><a href="https://github.com/V0raOnline">GitHub ↗</a></li>
   </ul>
+  </div>
+  </div>
 </header>
 
 <section id="herramientas">
@@ -287,10 +323,12 @@
   "@type": "CollectionPage",
   "name": "V0ra — Catálogo",
   "url": "https://v0raonline.github.io/",
+  "image": "https://v0raonline.github.io/og-card.jpg",
   "description": "Hago cosas, escribo cosas y a veces salen proyectos útiles. Otros salen raros. Con suerte, algunos son las dos cosas.",
   "author": {
     "@type": "Person",
     "name": "V0ra",
+    "description": "No pienso fuera de la caja. Desmonto las cajas y conecto sus contenidos.",
     "alternateName": "pequeña criatura del análisis bayesiano",
     "url": "https://github.com/V0raOnline",
     "sameAs": ["https://v0raonline.substack.com", "https://github.com/V0raOnline"]
