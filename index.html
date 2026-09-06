@@ -137,11 +137,25 @@
     border-radius:12px;
     padding:22px 22px 18px;
     transition:border-color .15s,background .15s,transform .15s;
+    position:relative;
   }
   .card:hover{border-color:var(--accent-dim);background:var(--panel-hi);transform:translateY(-2px)}
   .card h3{margin:0;font-size:1.12rem;letter-spacing:-.01em}
   .card h3 a{color:var(--fg)}
   .card h3 a:hover{color:var(--accent);text-decoration:none}
+
+  /* Toda la tarjeta es clicable, no solo el "Abrir →". Quien llega no espera
+     tener que apuntar a un enlace pequeño: pincha en la caja.
+     Se hace estirando el enlace del titulo por encima de la tarjeta y NO con un
+     onclick, y la diferencia importa: asi sigue siendo un enlace de verdad, con
+     su clic central, su "abrir en pestaña nueva", su arrastrar a marcadores y su
+     teclado. Un onclick no da nada de eso y ademas deja la tarjeta muda para un
+     lector de pantalla.
+     Se estira el del <h3> y no el del "Abrir" porque su texto dice a donde va. */
+  .card h3 a::after{content:"";position:absolute;inset:0;border-radius:12px}
+  /* Los enlaces de abajo van por encima de esa capa: si no, "codigo" -que
+     lleva a otro sitio- dejaria de poder pulsarse. */
+  .card .actions a{position:relative;z-index:1}
   .card p{margin:10px 0 0;color:var(--muted);font-size:.94rem;flex:1}
   .tags{
     display:flex;flex-wrap:wrap;gap:6px;
